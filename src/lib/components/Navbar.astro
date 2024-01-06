@@ -1,0 +1,70 @@
+---
+const nav = [
+  { text: "Home", link: "/" },
+  { text: "Blog", link: "/blog" },
+  { text: "About", link: "/about" },
+  { text: "Contact", link: "/contact" },
+];
+---
+
+<header class="shadow">
+  <div class="wrapper navbar">
+    <nav>
+      <div class="brand"><a href="/">The Lone Voice</a></div>
+    </nav>
+    <ul class="flex-row">
+      {
+        nav.map((item) => (
+          <li>
+            <a href={item.link}>{item.text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<style>
+  header {
+    padding-block: 0.75em;
+  }
+
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75em;
+    align-items: center;
+
+    @media (min-width: 600px) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  .brand {
+    font-size: var(--fs-6);
+    font-weight: 700;
+    text-align: center;
+    font-family: "Alegreya", ui-serif, serif;
+
+    @media (min-width: 600px) {
+      text-align: left;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @media (min-width: 600px) {
+      justify-content: flex-end;
+      gap: 3em;
+    }
+  }
+
+  li a {
+    font-size: var(--fs-4);
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import { filterPosts, generateTagData } from "../utils/helpers";
+
+const allPosts = await getCollection("blog");
+const filteredPosts = filterPosts(allPosts);
+
+const uniqueTags = [
+  ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
+] as string[];
+
+const tagData = generateTagData(uniqueTags);
+---
+
+<section>
+  <h2 class="heading">All Tags</h2>
+  <div class="flex-row">
+    {tagData.map((tag) => <a href={`/tag/${tag.slug}`}>{tag.name}</a>)}
+  </div>
+</section>
+
+<style>
+  h2 {
+    margin-block-end: 0.5em;
+  }
+
+  div {
+    gap: 0.5em;
+  }
+
+  a {
+    background-color: #f5f5f4;
+    padding: 0.5em;
+    font-size: var(--fs-3);
+    border-radius: 0.25rem;
+  }
+</style>

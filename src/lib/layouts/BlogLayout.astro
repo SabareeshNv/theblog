@@ -1,0 +1,15 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+
+const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
+---
+
+<BaseLayout {title} {description}>
+  <main>
+    <Hero {title} {pubDate} {coverImage} {coverAlt} />
+    <article class="wrapper typography py">
+      <slot />
+    </article>
+  </main>
+</BaseLayout>

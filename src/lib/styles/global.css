@@ -1,0 +1,157 @@
+:root {
+  --fs-0: clamp(0.75rem, -0.28vw + 0.82rem, 0.58rem);
+  --fs-1: clamp(0.83rem, -0.21vw + 0.88rem, 0.69rem);
+  --fs-2: clamp(0.91rem, -0.12vw + 0.94rem, 0.83rem);
+  --fs-3: clamp(1rem, 0vw + 1rem, 1rem);
+  --fs-4: clamp(1.1rem, 0.16vw + 1.06rem, 1.2rem);
+  --fs-5: clamp(1.21rem, 0.37vw + 1.12rem, 1.44rem);
+  --fs-6: clamp(1.33rem, 0.64vw + 1.17rem, 1.73rem);
+  --fs-7: clamp(1.46rem, 0.98vw + 1.22rem, 2.07rem);
+  --fs-8: clamp(1.61rem, 1.4vw + 1.26rem, 2.49rem);
+  --fs-9: clamp(1.77rem, 1.94vw + 1.29rem, 2.99rem);
+  --fs-10: clamp(1.95rem, 2.62vw + 1.29rem, 3.58rem);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.6;
+  font-family: "Alegreya Sans", system-ui, -apple-system, Segoe UI, Roboto,
+    Ubuntu, Cantarell, Noto Sans, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: var(--fs-4);
+}
+
+.font-serif {
+  font-family: "Alegreya", ui-serif, serif;
+}
+
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #16191d;
+}
+
+/* Layout Classes */
+.wrapper {
+  max-width: 1400px;
+  width: 90%;
+  margin-inline: auto;
+
+  @media (min-width: 600px) {
+    width: 95%;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body > footer {
+  position: sticky;
+  top: 100vh;
+}
+
+/* Atomic Classes */
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.py {
+  padding-block: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.shadow {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.grid {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 600px) {
+    grid-template-columns: 2.5fr 1fr;
+  }
+}
+
+.responsive-grid {
+  display: grid;
+  column-gap: 2em;
+  row-gap: 4em;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+}
+
+/* Typography Styles */
+.typography {
+  max-width: 70ch;
+  font-size: var(--fs-5);
+  margin-inline: auto;
+  line-height: 1.7;
+
+  h1 {
+    font-size: var(--fs-9);
+    line-height: 1.3;
+    font-family: "Alegreya", ui-serif, serif;
+  }
+
+  h2 {
+    font-size: var(--fs-8);
+    line-height: 1.3;
+    font-family: "Alegreya", ui-serif, serif;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: var(--fs-7);
+    line-height: 1.3;
+    font-family: "Alegreya", ui-serif, serif;
+  }
+
+  :is(ul, ol) > li {
+    margin-block-end: 0.25em;
+  }
+
+  blockquote {
+    padding: 1.5em;
+    background-color: #f4f4f5;
+    border-radius: 0.25em;
+  }
+
+  pre {
+    padding: 1em;
+    border-radius: 0.25em;
+    font-size: 1.1rem;
+  }
+}
+
+.typography > * + * {
+  margin-block-start: 1.5em;
+}

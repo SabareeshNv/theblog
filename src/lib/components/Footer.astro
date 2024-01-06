@@ -1,0 +1,70 @@
+---
+const footer = [
+  { text: "Privacy Policy", link: "/privacy-policy" },
+  { text: "Editorial Policy", link: "/editorial-policy" },
+  { text: "Sitemap", link: "/sitemap-index.xml" },
+  { text: "RSS", link: "/rss" },
+];
+---
+
+<footer>
+  <div class="wrapper">
+    <div class="footer-grid">
+      <ul class="flex-row">
+        {
+          footer.map((item) => (
+            <li>
+              <a href={item.link}>{item.text}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="copy">Copyright © 2024 | TheLoneVoice.in</div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: #000000e6;
+    color: whitesmoke;
+    padding-block: 2em;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 600px) {
+      grid-template-columns: 2fr 1fr;
+      gap: 0.5em;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    gap: 1.5em;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @media (min-width: 600px) {
+      justify-content: normal;
+    }
+  }
+
+  li a {
+    color: whitesmoke;
+    font-size: var(--fs-4);
+  }
+
+  .copy {
+    text-align: center;
+
+    @media (min-width: 600px) {
+      text-align: right;
+    }
+  }
+</style>

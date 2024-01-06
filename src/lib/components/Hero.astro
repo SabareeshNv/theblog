@@ -1,0 +1,83 @@
+---
+import Date from "./Date.astro";
+import { Image } from "astro:assets";
+
+const { title, pubDate, coverImage, coverAlt } = Astro.props;
+---
+
+<section>
+  <div class="hero-head wrapper">
+    <Date date={pubDate} class="date" />
+    <h1 class="hero-title">{title}</h1>
+  </div>
+  <Image
+    src={coverImage}
+    alt={coverAlt}
+    widths={[350, 550, 1000, 1400]}
+    sizes={`(max-width: 500px) 350px, (max-width: 768px) 550px, (max-width: 1024px) 1000px, (min-width: 1024px) 1400px`}
+    quality={"max"}
+    loading={"eager"}
+    fetchpriority={"high"}
+    decoding={"sync"}
+    class="hero-image"
+  />
+</section>
+
+<style>
+  section {
+    @media (min-width: 800px) {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  .hero-image,
+  .hero-head {
+    grid-row: 1 / -1;
+  }
+
+  .hero-head {
+    grid-column: 1 / 6;
+    z-index: 10;
+    align-self: flex-end;
+
+    @media (min-width: 800px) {
+      color: white;
+      max-width: 900px;
+    }
+  }
+
+  .hero-image {
+    grid-column: 1 / -1;
+    width: 100%;
+    background-color: rgb(55 65 81);
+
+    @media (min-width: 800px) {
+      filter: brightness(0.65);
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .date {
+    font-size: var(--fs-5);
+    padding-block-start: 0.75em;
+    padding-block-end: 0.5em;
+
+    @media (min-width: 800px) {
+      font-size: var(--fs-6);
+      padding-block-start: 0;
+    }
+  }
+
+  h1 {
+    font-size: var(--fs-8);
+    font-family: "Alegreya", ui-serif, serif;
+    line-height: 1.2;
+    margin-block-end: 0.5em;
+    font-weight: 700;
+
+    @media (min-width: 800px) {
+      font-size: var(--fs-9);
+    }
+  }
+</style>

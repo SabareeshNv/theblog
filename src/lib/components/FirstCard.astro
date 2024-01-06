@@ -1,0 +1,63 @@
+---
+import { Picture } from "astro:assets";
+import Date from "./Date.astro";
+
+const { post } = Astro.props;
+const { title, pubDate, summary, coverImage, coverAlt } = post.data;
+---
+
+<article>
+  <a href={`/blog/${post.slug}/`}>
+    <Picture
+      src={coverImage}
+      alt={coverAlt}
+      widths={[350, 550, 750, 1000]}
+      sizes={`(max-width: 500px) 350px, (max-width: 768px) 550px, (max-width: 1024px) 750px, (min-width: 1024px) 1000px`}
+      formats={["avif", "webp"]}
+      quality={"max"}
+      loading={"eager"}
+      fetchpriority={"high"}
+      decoding={"sync"}
+      class="card-image shadow"
+    />
+  </a>
+
+  <Date date={pubDate} class="date" />
+
+  <h2>
+    <a href={`/blog/${post.slug}/`}>{title}</a>
+  </h2>
+
+  <div class="summary">
+    {summary}
+  </div>
+</article>
+
+<style>
+  article {
+    margin-bottom: 4em;
+  }
+
+  .card-image {
+    width: 100%;
+    border-radius: 0.2rem;
+    background-color: rgb(209 213 219);
+    aspect-ratio: 16 / 9;
+  }
+
+  .date {
+    padding-block-start: 0.75em;
+    padding-block-end: 0.5em;
+  }
+
+  h2 {
+    margin-block-end: 0.75em;
+    font-family: "Alegreya", ui-serif, serif;
+    font-size: var(--fs-7);
+    line-height: 1.2;
+  }
+
+  .summary {
+    line-height: 1.5;
+  }
+</style>
