@@ -1,24 +1,24 @@
 ---
 const footer = [
   { text: "Privacy Policy", link: "/privacy-policy" },
+  { text: "Sitemap", link: "#" },
+  { text: "RSS Feed", link: "#" },
   { text: "Editorial Policy", link: "/editorial-policy" },
 ];
 ---
 
 <footer>
-  <div class="wrapper">
-    <div class="footer-grid">
-      <ul class="flex-row">
-        {
-          footer.map((item) => (
-            <li>
-              <a href={item.link}>{item.text}</a>
-            </li>
-          ))
-        }
-      </ul>
-      <div class="copy">Copyright © 2024 | TheLoneVoice.in</div>
-    </div>
+  <div class="wrapper footer-grid">
+    <ul class="flex-row">
+      {
+        footer.map((item) => (
+          <li>
+            <a href={item.link}>{item.text}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="copy">Copyright © 2024 | TheLoneVoice.in</div>
   </div>
 </footer>
 
@@ -26,21 +26,17 @@ const footer = [
   footer {
     background-color: #000000e6;
     color: var(--clr-light);
-    padding-block: 2em;
-
-    @media (min-width: 600px) {
-      padding-block: 1em;
-    }
+    padding-block: 1em;
   }
 
   .footer-grid {
     display: grid;
-    gap: 2em;
+    gap: 0.75em;
     grid-template-columns: 1fr;
 
     @media (min-width: 600px) {
       grid-template-columns: 2fr 1fr;
-      gap: 0.5em;
+      gap: 0.25em;
     }
   }
 
