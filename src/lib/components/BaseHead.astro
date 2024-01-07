@@ -14,7 +14,6 @@ import "@fontsource/alegreya-sans/700.css";
 //Alegreya Font
 import "@fontsource/alegreya/400.css";
 import "@fontsource/alegreya/600.css";
-import "@fontsource/alegreya/700.css";
 
 import { ViewTransitions } from "astro:transitions";
 
@@ -38,5 +37,7 @@ const { title, description } = Astro.props;
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
+
+<meta name="robots" content="index,follow" />
 
 <ViewTransitions />

@@ -40,12 +40,17 @@ body {
   background-color: var(--clr-light);
 }
 
-.font-serif {
-  font-family: "Alegreya", ui-serif, serif;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 600;
 }
 
 img,
-picture {
+picture,
+video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -143,7 +148,6 @@ body > footer {
   h5 {
     font-family: "Alegreya", ui-serif, serif;
     text-wrap: balance;
-    font-weight: 600;
   }
 
   h1 {

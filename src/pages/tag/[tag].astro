@@ -39,7 +39,7 @@ const description = `All posts on the topic of ${tag}`;
   <main class="wrapper py grid">
     <div>
       <h1>
-        View all posts on the topic of &nbsp; ' <span>{unslugify(tag)}</span> '
+        Posts on the topic of : <span>{unslugify(tag)}</span>
       </h1>
 
       <div class="responsive-grid">
@@ -55,13 +55,13 @@ const description = `All posts on the topic of ${tag}`;
 
 <style>
   h1 {
-    font-size: var(--fs-7);
+    font-size: var(--fs-8);
     margin-block-end: 1em;
-    font-weight: 600;
   }
 
   span {
-    margin-inline: 0.2em;
+    margin-inline: 0.1em;
     color: var(--clr-brand);
+    font-family: "Alegreya", ui-serif, serif;
   }
 </style>
