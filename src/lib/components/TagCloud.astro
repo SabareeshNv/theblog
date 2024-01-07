@@ -13,7 +13,7 @@ const tagData = generateTagData(uniqueTags);
 ---
 
 <section>
-  <h2 class="heading">All Tags</h2>
+  <h2 class="heading">Topics</h2>
   <div class="flex-row">
     {tagData.map((tag) => <a href={`/tag/${tag.slug}`}>{tag.name}</a>)}
   </div>
@@ -22,6 +22,9 @@ const tagData = generateTagData(uniqueTags);
 <style>
   h2 {
     margin-block-end: 0.5em;
+    font-family: "Alegreya", ui-serif, serif;
+    font-weight: 600;
+    font-size: var(--fs-6);
   }
 
   div {

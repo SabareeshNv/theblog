@@ -33,6 +33,8 @@ coverAlt: "A beautiful street design by Leonardo AI"
 
 - Provide specific examples from Kerala or other Indian cities experiencing similar challenges.
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/U2Qp5pL3ovA?si=uh1rt7FIPlOAxW1S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Benefits of Real Estate-Based Development:
 
 - Explain how strategic real estate development can attract investments, create jobs, and boost the economy.

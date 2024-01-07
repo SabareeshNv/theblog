@@ -1,0 +1,67 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Card from "@components/Card.astro";
+import TagCloud from "@components/TagCloud.astro";
+
+import { getCollection } from "astro:content";
+import { filterPosts, generateTagData, unslugify } from "@utils/helpers";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const filteredPosts = filterPosts(allPosts);
+
+  const uniqueTags = [
+    ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
+  ] as string[];
+
+  const tagData = generateTagData(uniqueTags);
+
+  return tagData.map((tag) => {
+    const taggedPosts = filteredPosts.filter((post) =>
+      post.data.tags.includes(tag.name)
+    );
+
+    return {
+      params: { tag: tag.slug },
+      props: { posts: taggedPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+const title = `All posts on the topic of ${unslugify(tag)}`;
+const description = `All posts on the topic of ${tag}`;
+---
+
+<BaseLayout {title} {description}>
+  <main class="wrapper py grid">
+    <div>
+      <h1>
+        View all posts on the topic of &nbsp; ' <span>{unslugify(tag)}</span> '
+      </h1>
+
+      <div class="responsive-grid">
+        {posts.map((post) => <Card {post} />)}
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <TagCloud />
+    </aside>
+  </main>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: var(--fs-7);
+    margin-block-end: 1em;
+    font-weight: 600;
+  }
+
+  span {
+    margin-inline: 0.2em;
+    color: var(--clr-brand);
+  }
+</style>

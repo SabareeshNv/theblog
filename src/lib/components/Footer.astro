@@ -2,8 +2,6 @@
 const footer = [
   { text: "Privacy Policy", link: "/privacy-policy" },
   { text: "Editorial Policy", link: "/editorial-policy" },
-  { text: "Sitemap", link: "/sitemap-index.xml" },
-  { text: "RSS", link: "/rss" },
 ];
 ---
 
@@ -27,8 +25,12 @@ const footer = [
 <style>
   footer {
     background-color: #000000e6;
-    color: whitesmoke;
+    color: var(--clr-light);
     padding-block: 2em;
+
+    @media (min-width: 600px) {
+      padding-block: 1em;
+    }
   }
 
   .footer-grid {
@@ -56,7 +58,7 @@ const footer = [
   }
 
   li a {
-    color: whitesmoke;
+    color: var(--clr-light);
     font-size: var(--fs-4);
   }
 

@@ -8,8 +8,32 @@ const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
 <BaseLayout {title} {description}>
   <main>
     <Hero {title} {pubDate} {coverImage} {coverAlt} />
-    <article class="wrapper typography py">
+    <article class="wrapper py typography">
       <slot />
+      <div class="tags flex-row">
+        {
+          tags.map((tag) => (
+            <a href={`/tag/${tag}`} class="shadow">
+              {tag}
+            </a>
+          ))
+        }
+      </div>
     </article>
   </main>
 </BaseLayout>
+
+<style>
+  .tags {
+    gap: 0.5em;
+  }
+
+  .tags a {
+    background-color: #f5f5f4;
+    padding: 0.5em;
+    font-size: var(--fs-4);
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: black;
+  }
+</style>
