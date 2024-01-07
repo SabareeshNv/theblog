@@ -2,6 +2,8 @@
 import BaseLayout from "./BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 
+import { slugify } from "@utils/helpers";
+
 const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
 ---
 
@@ -13,7 +15,7 @@ const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
       <div class="tags flex-row">
         {
           tags.map((tag) => (
-            <a href={`/tag/${tag}`} class="shadow">
+            <a href={`/tag/${slugify(tag)}`} class="shadow">
               {tag}
             </a>
           ))
