@@ -11,9 +11,9 @@
   --fs-9: clamp(1.77rem, 1.94vw + 1.29rem, 2.99rem);
   --fs-10: clamp(1.95rem, 2.62vw + 1.29rem, 3.58rem);
 
-  --clr-dark: hsl(0, 0%, 12%);
-  --clr-light: hsl(0, 100%, 100%);
-  --clr-brand: hsl(3, 67%, 46%);
+  --clr-dark: #070504;
+  --clr-light: #ffffff;
+  --clr-brand: #c42f27;
 }
 
 *,
@@ -21,13 +21,15 @@
 *::before {
   box-sizing: border-box;
   margin: 0;
-  font: inherit;
+}
+
+html {
+  scroll-padding-top: 2.5rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 2.5rem;
   }
 }
 
@@ -44,7 +46,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-weight: 600;
 }
 
@@ -54,6 +57,12 @@ video {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+img {
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
