@@ -21,6 +21,7 @@
 *::before {
   box-sizing: border-box;
   margin: 0;
+  font: inherit;
 }
 
 html {
@@ -135,7 +136,8 @@ body > footer {
   margin-top: 0.3em;
   width: clamp(2em, 25%, 3em);
   height: 3px;
-  background-color: #212121;
+  /* background-color: #212121; */
+  background-color: var(--clr-brand);
 }
 
 /* Typography Styles */

@@ -13,17 +13,18 @@ const tagData = generateTagData(uniqueTags);
 ---
 
 <section>
-  <h2 class="heading">Topics</h2>
+  <div class="heading">Topics</div>
   <div class="flex-row">
     {tagData.map((tag) => <a href={`/tag/${tag.slug}`}>{tag.name}</a>)}
   </div>
 </section>
 
 <style>
-  h2 {
+  .heading {
     margin-block-end: 0.5em;
     font-family: "Alegreya", ui-serif, serif;
     font-size: var(--fs-6);
+    font-weight: 600;
   }
 
   div {
@@ -35,5 +36,9 @@ const tagData = generateTagData(uniqueTags);
     padding: 0.5em;
     font-size: var(--fs-3);
     border-radius: 0.25rem;
+
+    &:hover {
+      background-color: #d4d4d3ff;
+    }
   }
 </style>
