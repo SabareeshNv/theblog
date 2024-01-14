@@ -8,10 +8,8 @@ const nav = [
 ---
 
 <header class="shadow">
-  <div class="wrapper navbar">
-    <nav>
-      <div class="brand"><a href="/">The Lone Voice</a></div>
-    </nav>
+  <nav class="wrapper">
+    <div class="brand"><a href="/">The Lone Voice</a></div>
     <ul class="flex-row">
       {
         nav.map((item) => (
@@ -21,7 +19,7 @@ const nav = [
         ))
       }
     </ul>
-  </div>
+  </nav>
 </header>
 
 <style>
@@ -29,7 +27,7 @@ const nav = [
     padding-block: 0.75em;
   }
 
-  .navbar {
+  nav {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.75em;

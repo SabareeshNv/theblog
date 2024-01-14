@@ -11,8 +11,8 @@ const { title, pubDate, summary, coverImage, coverAlt } = post.data;
     <Picture
       src={coverImage}
       alt={coverAlt}
-      widths={[350, 550, 750, 900]}
-      sizes={`(max-width: 500px) 350px, (max-width: 768px) 550px, (max-width: 1024px) 750px, (min-width: 1024px) 900px`}
+      widths={[350, 550, 750]}
+      sizes={`(max-width: 500px) 350px, (max-width: 920px) 750px, (min-width: 921px) 550px`}
       formats={["avif", "webp"]}
       quality={"mid"}
       class="card-image shadow"

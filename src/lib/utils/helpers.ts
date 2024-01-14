@@ -9,20 +9,14 @@ export function slugify(text: string): string {
     .replace(/-+$/, "");
 }
 
-export const unslugify = (slug) =>
-  slug
+export function unslugify(slug: string): string {
+  return slug
     .replace(/\-/g, " ")
     .replace(
       /\w\S*/g,
       (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
     );
-
-// export function slugifyArray(filteredPosts) {
-//   const slugSet = new Set();
-//   filteredPosts.forEach((item)=> {
-//     item.data.tags
-//   })
-// }
+}
 
 export function formatDate(date: Date): string {
   const d = new Date(date);
@@ -72,16 +66,13 @@ export function filterPosts(
   return filteredPosts;
 }
 
-export function getReadingTime(content) {
-  const WORDS_PER_MINUTE = 200;
-  if (!content) return;
-  const clean = content.replace(/<\/?[^>]+(>|$)/g, "");
-  const numberOfWords = clean.split(/\s/g).length;
-  return Math.ceil(numberOfWords / WORDS_PER_MINUTE);
+// To make typescript happy ( The shape of data is defined here)
+interface nameSlug {
+  name: string;
+  slug: string;
 }
-
-export function generateTagData(tags) {
-  let tagData = [];
+export function generateTagData(tags: string[]): nameSlug[] {
+  let tagData: nameSlug[] = [];
   tags.forEach((tag) => {
     tagData.push({
       name: tag,

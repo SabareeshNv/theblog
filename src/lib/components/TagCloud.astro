@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import { filterPosts, generateTagData } from "../utils/helpers";
 
 const allPosts = await getCollection("blog");
@@ -9,15 +9,21 @@ const uniqueTags = [
   ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
 ] as string[];
 
-const tagData = generateTagData(uniqueTags);
+// To make typescript happy ( The shape of tagData is defined here)
+interface nameSlug {
+  name: string;
+  slug: string;
+}
+const tagData: nameSlug[] = generateTagData(uniqueTags);
 ---
 
-<section>
+<tag-cloud>
   <div class="heading">Topics</div>
+  <p>Here are all the topics we have posts on</p>
   <div class="flex-row">
     {tagData.map((tag) => <a href={`/tag/${tag.slug}`}>{tag.name}</a>)}
   </div>
-</section>
+</tag-cloud>
 
 <style>
   .heading {
@@ -25,6 +31,10 @@ const tagData = generateTagData(uniqueTags);
     font-family: var(--ff-serif);
     font-size: var(--fs-6);
     font-weight: 600;
+  }
+
+  p {
+    margin-block-end: 1rem;
   }
 
   div {

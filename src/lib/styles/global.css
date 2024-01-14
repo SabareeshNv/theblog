@@ -121,7 +121,7 @@ body > footer {
   gap: 2em;
   grid-template-columns: 1fr;
 
-  @media (min-width: 600px) {
+  @media (min-width: 800px) {
     grid-template-columns: 2.5fr 1fr;
   }
 }

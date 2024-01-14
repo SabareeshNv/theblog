@@ -2,14 +2,14 @@
 import Search from "astro-pagefind/components/Search";
 ---
 
-<section>
+<search-field>
   <div class="heading">Search</div>
   <Search
     id="search"
     className="pagefind-ui"
     uiOptions={{ showImages: false }}
   />
-</section>
+</search-field>
 
 <style>
   .heading {
@@ -19,7 +19,8 @@ import Search from "astro-pagefind/components/Search";
     font-weight: 600;
   }
 
-  section {
+  search-field {
+    display: block;
     margin-block-end: 1.5em;
 
     @media (min-width: 600px) {
