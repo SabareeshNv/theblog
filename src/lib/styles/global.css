@@ -11,8 +11,7 @@
   --fs-9: clamp(1.77rem, 1.94vw + 1.29rem, 2.99rem);
   --fs-10: clamp(1.95rem, 2.62vw + 1.29rem, 3.58rem);
 
-  --ff-sans: "Alegreya Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
-    Cantarell, Noto Sans, sans-serif;
+  --ff-sans: "Alegreya Sans", system-ui, sans-serif;
   --ff-serif: "Alegreya", ui-serif, serif;
 
   --clr-dark: #070504;

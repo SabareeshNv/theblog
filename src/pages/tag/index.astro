@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import { filterPosts, generateTagData } from "../../lib/utils/helpers";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const allPosts = await getCollection("blog");
+const filteredPosts = filterPosts(allPosts);
+
+const uniqueTags = [
+  ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
+] as string[];
+
+const tagData = generateTagData(uniqueTags);
+
+const title = "All tags";
+const description = "Here is the list of all the tags";
+---
+
+<BaseLayout {title} {description}>
+  <main class="wrapper py">
+    <h1 class="heading">List of all tags</h1>
+    <ol>
+      {
+        tagData.map((tag) => (
+          <li>
+            <a href={`/tag/${tag.slug}`}>{tag.name}</a>
+          </li>
+        ))
+      }
+    </ol>
+  </main>
+</BaseLayout>
+
+<style>
+  .heading {
+    margin-block-end: 0.5em;
+    font-family: var(--ff-serif);
+    font-size: var(--fs-8);
+    font-weight: 600;
+  }
+
+  li {
+    font-size: var(--fs-6);
+    padding-block-end: 1rem;
+  }
+
+  a {
+  }
+</style>

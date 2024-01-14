@@ -1,4 +1,7 @@
 import { defineConfig } from "astro/config";
+
+import embeds from "astro-embed/integration";
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import pagefind from "astro-pagefind";
 
@@ -8,5 +11,5 @@ export default defineConfig({
   build: {
     assets: "_assets",
   },
-  integrations: [sitemap(), pagefind()],
+  integrations: [embeds(), mdx(), sitemap(), pagefind()],
 });

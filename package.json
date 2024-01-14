@@ -14,10 +14,12 @@
     "astro": "^4.1.1"
   },
   "devDependencies": {
+    "@astrojs/mdx": "^2.0.4",
     "@astrojs/rss": "^4.0.2",
     "@astrojs/sitemap": "^3.0.4",
     "@fontsource/alegreya": "^5.0.8",
     "@fontsource/alegreya-sans": "^5.0.8",
+    "astro-embed": "^0.6.1",
     "astro-pagefind": "^1.4.0",
     "autoprefixer": "^10.4.16",
     "pagefind": "^1.0.4",

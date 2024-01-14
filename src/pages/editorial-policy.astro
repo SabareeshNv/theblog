@@ -8,15 +8,7 @@ const description = "Our editorial policy";
 
 <BaseLayout {title} {description}>
   <main class="wrapper py typography">
-    <h1>{title}</h1>
-
-    <blockquote>
-      <p>
-        A note on AI: All our blog content is made by humans for humans. While
-        generative AI tools such as ChatGPT and Bard may be used for research,
-        all articles are written and verified by us mortal humans.
-      </p>
-    </blockquote>
+    <h1 class="heading">{title}</h1>
 
     <h2>Purpose of this blog</h2>
     <p>
@@ -32,6 +24,13 @@ const description = "Our editorial policy";
       entities. Fact-checking is essential. All statistics, data, and claims are
       verified from credible sources before publication.
     </p>
+    <blockquote>
+      <p>
+        A note on AI: All our blog content is made by humans for humans. While
+        generative AI tools such as ChatGPT and Bard may be used for research,
+        all articles are written and verified by humans.
+      </p>
+    </blockquote>
 
     <h2>Updates & Corrections</h2>
     <p>
@@ -40,6 +39,7 @@ const description = "Our editorial policy";
         href="/contact">contact us</a
       >
     </p>
+
     <h2>Privacy</h2>
     <p>
       We respect the privacy of our readers and contributors. We will not share

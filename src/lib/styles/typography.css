@@ -5,7 +5,7 @@
 }
 
 .typography {
-  max-width: 68ch;
+  max-width: 65ch;
   font-size: var(--fs-5);
   margin-inline: auto;
 
@@ -52,6 +52,7 @@
   blockquote {
     padding: 1em;
     border-inline-start: 4px solid var(--clr-brand);
+    background-color: hsla(3, 67%, 46%, 0.04);
 
     @media (min-width: 600px) {
       margin-inline: 2.5rem;
@@ -80,9 +81,7 @@
     margin-inline: auto;
   }
 
-  iframe {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    height: auto;
+  lite-youtube {
+    max-width: 100%;
   }
 }
