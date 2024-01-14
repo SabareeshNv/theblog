@@ -15,7 +15,6 @@
   h4,
   h5,
   h6 {
-    font-family: var(--ff-serif);
     text-wrap: balance;
     margin-block-start: 3rem;
 
@@ -55,7 +54,11 @@
     border-inline-start: 4px solid var(--clr-brand);
 
     @media (min-width: 600px) {
-      margin-inline: 1.25rem;
+      margin-inline: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      margin-inline: 4rem;
     }
   }
 

@@ -9,7 +9,7 @@ const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
 ---
 
 <BaseLayout {title} {description}>
-  <main>
+  <main data-pagefind-body>
     <Hero {title} {pubDate} {coverImage} {coverAlt} />
     <article class="wrapper py typography">
       <slot />
