@@ -11,7 +11,7 @@
     "clean": "rimraf dist .astro"
   },
   "dependencies": {
-    "astro": "^4.1.1"
+    "astro": "^4.1.2"
   },
   "devDependencies": {
     "@astrojs/mdx": "^2.0.4",
@@ -25,6 +25,6 @@
     "pagefind": "^1.0.4",
     "postcss-nested": "^6.0.1",
     "rimraf": "^5.0.5",
-    "sharp": "^0.33.1"
+    "sharp": "^0.33.2"
   }
 }
