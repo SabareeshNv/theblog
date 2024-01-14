@@ -10,6 +10,7 @@ import { filterPosts } from "@utils/helpers";
 
 const allPosts = await getCollection("blog");
 const filteredPosts = filterPosts(allPosts);
+// console.log(Object.values(allPosts)[0]);
 
 const title = "TheLoneVoice";
 const description = "Welcome to my humble blog";
@@ -19,7 +20,7 @@ const description = "Welcome to my humble blog";
   <main class="wrapper py grid">
     <div>
       {filteredPosts.slice(0, 1).map((post) => <FirstCard {post} />)}
-      <div class="responsive-grid">
+      <div class="card-grid">
         {filteredPosts.slice(1).map((post) => <Card {post} />)}
       </div>
     </div>

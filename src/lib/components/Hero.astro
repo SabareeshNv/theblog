@@ -13,8 +13,8 @@ const { title, pubDate, coverImage, coverAlt } = Astro.props;
   <Image
     src={coverImage}
     alt={coverAlt}
-    widths={[350, 550, 1000, 1400]}
-    sizes={`(max-width: 500px) 350px, (max-width: 768px) 550px, (max-width: 1024px) 1000px, (min-width: 1024px) 1400px`}
+    widths={[400, 750, 1400]}
+    sizes={`(max-width: 600px) 400px, (max-width: 1023px) 750px, (min-width: 1024px) 1400px`}
     quality={"max"}
     loading={"eager"}
     fetchpriority={"high"}

@@ -42,7 +42,7 @@ const description = `All posts on the topic of ${tag}`;
         Posts on the topic of <span>{unslugify(tag)}</span>
       </h1>
 
-      <div class="responsive-grid">
+      <div class="card-grid">
         {posts.map((post) => <Card {post} />)}
       </div>
     </div>

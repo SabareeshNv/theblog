@@ -52,7 +52,7 @@
   blockquote {
     padding: 1em;
     border-inline-start: 4px solid var(--clr-brand);
-    background-color: hsla(3, 67%, 46%, 0.04);
+    border-radius: 0.5rem;
 
     @media (min-width: 600px) {
       margin-inline: 2.5rem;

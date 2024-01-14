@@ -16,7 +16,7 @@
 
   --clr-dark: #070504;
   --clr-light: #ffffff;
-  --clr-brand: #c42f27;
+  --clr-brand: #990000;
 }
 
 *,
@@ -126,11 +126,15 @@ body > footer {
   }
 }
 
-.responsive-grid {
+.card-grid {
   display: grid;
-  column-gap: 2em;
-  row-gap: 4em;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  column-gap: 1em;
+  row-gap: 3em;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .heading::after {

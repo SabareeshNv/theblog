@@ -27,13 +27,32 @@ export function formatDate(date: Date): string {
   });
 }
 
+// This function will return an object with name and its sluggified form
+// To make typescript happy ( The shape of data is defined here)
+interface nameSlug {
+  name: string;
+  slug: string;
+}
+export function generateTagData(tags: string[]): nameSlug[] {
+  let tagData: nameSlug[] = [];
+  tags.forEach((tag) => {
+    tagData.push({
+      name: tag,
+      slug: `${slugify(tag)}`,
+    });
+  });
+  return tagData;
+}
+
+// This function filter out the posts according
+// to conditions in the parameters specified.
 export function filterPosts(
   posts,
   {
     filterOutDrafts = true,
     filterOutFuturePosts = true,
     sortByDate = true,
-    limit = undefined,
+    limit = undefined, // default is nolimit; if need, pass a number eg: 5
   } = {}
 ) {
   const filteredPosts = posts.reduce((acc, post) => {
@@ -64,20 +83,4 @@ export function filterPosts(
     return filteredPosts.slice(0, limit);
   }
   return filteredPosts;
-}
-
-// To make typescript happy ( The shape of data is defined here)
-interface nameSlug {
-  name: string;
-  slug: string;
-}
-export function generateTagData(tags: string[]): nameSlug[] {
-  let tagData: nameSlug[] = [];
-  tags.forEach((tag) => {
-    tagData.push({
-      name: tag,
-      slug: `${slugify(tag)}`,
-    });
-  });
-  return tagData;
 }
