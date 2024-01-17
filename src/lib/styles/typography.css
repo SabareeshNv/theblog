@@ -1,13 +1,14 @@
 /* Typography Styles */
 
 .typography > * + * {
-  margin-block-start: 2rem;
+  margin-block-start: 2.5rem;
 }
 
 .typography {
-  max-width: 65ch;
+  max-width: 68ch;
   font-size: var(--fs-5);
   margin-inline: auto;
+  word-spacing: 2px;
 
   h1,
   h2,
@@ -16,21 +17,30 @@
   h5,
   h6 {
     text-wrap: balance;
-    margin-block-start: 3rem;
+    margin-block-start: 5rem;
+    font-family: var(--ff-serif);
 
     & + * {
-      margin-block-start: 1rem;
+      margin-block-start: 1.25rem;
     }
   }
 
   h1 {
     font-size: var(--fs-8);
     line-height: 1.2;
+
+    @media (min-width: 800px) {
+      font-size: var(--fs-9);
+    }
   }
 
   h2 {
     font-size: var(--fs-7);
     line-height: 1.2;
+
+    @media (min-width: 800px) {
+      font-size: var(--fs-8);
+    }
   }
 
   h3,
@@ -39,6 +49,10 @@
   h6 {
     font-size: var(--fs-6);
     line-height: 1.2;
+
+    @media (min-width: 800px) {
+      font-size: var(--fs-7);
+    }
   }
 
   p {
@@ -52,7 +66,7 @@
   blockquote {
     padding: 1em;
     border-inline-start: 4px solid var(--clr-brand);
-    border-radius: 0.5rem;
+    background-color: antiquewhite;
 
     @media (min-width: 600px) {
       margin-inline: 2.5rem;
