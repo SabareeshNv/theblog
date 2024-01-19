@@ -25,6 +25,9 @@ devDependencies:
   '@fontsource/alegreya-sans':
     specifier: ^5.0.8
     version: 5.0.8
+  '@philnash/astro-pagination':
+    specifier: ^0.4.0
+    version: 0.4.0(astro@4.1.2)
   astro-embed:
     specifier: ^0.6.1
     version: 0.6.1(astro@4.1.2)
@@ -904,6 +907,14 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@philnash/astro-pagination@0.4.0(astro@4.1.2):
+    resolution: {integrity: sha512-FKhmOjUnZGPsDBvS4yTon6RCcQNNPSQB5FrBIhXYktKavSDf6TsUzSrre+mT2Pb4Gr0Ddl05BJb1jI161ro+gw==}
+    peerDependencies:
+      astro: ^2.3.0 || ^3.0.0 || ^4.0.0
+    dependencies:
+      astro: 4.1.2
+    dev: true
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
