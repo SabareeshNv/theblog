@@ -1,7 +1,7 @@
 /* Typography Styles */
 
 .typography > * + * {
-  margin-block-start: 2.5rem;
+  margin-block-start: 1.75em;
 }
 
 .typography {
@@ -17,11 +17,10 @@
   h5,
   h6 {
     text-wrap: balance;
-    margin-block-start: 5rem;
     font-family: var(--ff-serif);
 
     & + * {
-      margin-block-start: 1.25rem;
+      margin-block-start: 1em;
     }
   }
 
@@ -60,7 +59,7 @@
   }
 
   li {
-    margin-block-end: 0.75rem;
+    margin-block-end: 0.5em;
   }
 
   blockquote {
@@ -69,11 +68,11 @@
     background-color: antiquewhite;
 
     @media (min-width: 600px) {
-      margin-inline: 2.5rem;
+      margin-inline: 2.5em;
     }
 
     @media (min-width: 900px) {
-      margin-inline: 4rem;
+      margin-inline: 3.5em;
     }
   }
 

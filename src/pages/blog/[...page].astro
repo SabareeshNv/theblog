@@ -12,7 +12,8 @@ import { filterPosts } from "@utils/helpers";
 export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection("blog");
   const filteredPosts: CollectionEntry<"blog">[] = filterPosts(allPosts);
-  return paginate(filteredPosts, { pageSize: 4 }).map(({ params, props }) => ({
+
+  return paginate(filteredPosts, { pageSize: 5 }).map(({ params, props }) => ({
     props: props,
     params: {
       ...params,
