@@ -1,3 +1,5 @@
+import { number } from "astro/zod";
+
 export function slugify(text: string): string {
   return text
     .toString()

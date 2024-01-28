@@ -9,7 +9,7 @@ import { getCollection } from "astro:content";
 import { filterPosts } from "@utils/helpers";
 
 const allPosts = await getCollection("blog");
-const filteredPosts = filterPosts(allPosts);
+const filteredPosts = filterPosts(allPosts, { limit: 7 });
 // console.log(Object.values(allPosts)[0]);
 
 const title = "TheLoneVoice";
@@ -23,6 +23,9 @@ const description = "Welcome to my humble blog";
       <div class="card-grid">
         {filteredPosts.slice(1).map((post) => <Card {post} />)}
       </div>
+      <div class="flex-row">
+        <a href="/blog/" class="all-posts">All blog posts</a>
+      </div>
     </div>
     <aside class="sidebar">
       <SearchField />
@@ -30,3 +33,19 @@ const description = "Welcome to my humble blog";
     </aside>
   </main>
 </BaseLayout>
+
+<style>
+  .all-posts {
+    margin-block-start: 2em;
+    background-color: var(--clr-brand);
+    color: var(--clr-light);
+    padding: 0.33em 0.5em;
+    border-radius: 0.2em;
+    font-weight: 600;
+    margin-inline: auto;
+
+    &:hover {
+      background-color: hsl(0, 90%, 27%);
+    }
+  }
+</style>

@@ -1,11 +1,9 @@
-/* Typography Styles */
-
 .typography > * + * {
-  margin-block-start: 1.75em;
+  margin-block-start: 1.5em;
 }
 
 .typography {
-  max-width: 68ch;
+  max-width: 65ch;
   font-size: var(--fs-5);
   margin-inline: auto;
   word-spacing: 2px;
@@ -20,38 +18,38 @@
     font-family: var(--ff-serif);
 
     & + * {
-      margin-block-start: 1em;
+      margin-block-start: 0.5em;
     }
   }
 
   h1 {
-    font-size: var(--fs-8);
+    font-size: var(--fs-9);
     line-height: 1.2;
 
-    @media (min-width: 800px) {
+    /* @media (min-width: 800px) {
       font-size: var(--fs-9);
-    }
+    } */
   }
 
   h2 {
-    font-size: var(--fs-7);
+    font-size: var(--fs-8);
     line-height: 1.2;
 
-    @media (min-width: 800px) {
+    /* @media (min-width: 800px) {
       font-size: var(--fs-8);
-    }
+    } */
   }
 
   h3,
   h4,
   h5,
   h6 {
-    font-size: var(--fs-6);
+    font-size: var(--fs-7);
     line-height: 1.2;
 
-    @media (min-width: 800px) {
+    /* @media (min-width: 800px) {
       font-size: var(--fs-7);
-    }
+    } */
   }
 
   p {
