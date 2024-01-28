@@ -25,9 +25,6 @@ devDependencies:
   '@fontsource/alegreya-sans':
     specifier: ^5.0.8
     version: 5.0.8
-  '@philnash/astro-pagination':
-    specifier: ^0.4.0
-    version: 0.4.0(astro@4.2.6)
   astro-embed:
     specifier: ^0.6.1
     version: 0.6.1(astro@4.2.6)
@@ -893,14 +890,6 @@ packages:
     dev: true
     optional: true
 
-  /@philnash/astro-pagination@0.4.0(astro@4.2.6):
-    resolution: {integrity: sha512-FKhmOjUnZGPsDBvS4yTon6RCcQNNPSQB5FrBIhXYktKavSDf6TsUzSrre+mT2Pb4Gr0Ddl05BJb1jI161ro+gw==}
-    peerDependencies:
-      astro: ^2.3.0 || ^3.0.0 || ^4.0.0
-    dependencies:
-      astro: 4.2.6
-    dev: true
-
   /@polka/url@1.0.0-next.24:
     resolution: {integrity: sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==}
     dev: true
@@ -1280,7 +1269,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.22.3
-      caniuse-lite: 1.0.30001580
+      caniuse-lite: 1.0.30001581
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1355,7 +1344,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001580
+      caniuse-lite: 1.0.30001581
       electron-to-chromium: 1.4.648
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
@@ -1378,8 +1367,8 @@ packages:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
     engines: {node: '>=14.16'}
 
-  /caniuse-lite@1.0.30001580:
-    resolution: {integrity: sha512-mtj5ur2FFPZcCEpXFy8ADXbDACuNFXg6mxVDqp7tqooX6l3zwm+d8EPoeOSIFRDvHs8qu7/SLFOGniULkcH2iA==}
+  /caniuse-lite@1.0.30001581:
+    resolution: {integrity: sha512-whlTkwhqV2tUmP3oYhtNfaWGYHDdS3JYFQBKXxcUR9qqPWsRhFHhoISO2Xnl/g0xyKzht9mI1LZpiNWfMzHixQ==}
 
   /ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
