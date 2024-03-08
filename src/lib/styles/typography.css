@@ -6,7 +6,7 @@
   max-width: 65ch;
   font-size: var(--fs-5);
   margin-inline: auto;
-  word-spacing: 2px;
+  word-spacing: 3px;
 
   h1,
   h2,
@@ -18,26 +18,18 @@
     font-family: var(--ff-serif);
 
     & + * {
-      margin-block-start: 0.5em;
+      margin-block-start: 0.75em;
     }
   }
 
   h1 {
     font-size: var(--fs-9);
     line-height: 1.2;
-
-    /* @media (min-width: 800px) {
-      font-size: var(--fs-9);
-    } */
   }
 
   h2 {
     font-size: var(--fs-8);
     line-height: 1.2;
-
-    /* @media (min-width: 800px) {
-      font-size: var(--fs-8);
-    } */
   }
 
   h3,
@@ -46,10 +38,6 @@
   h6 {
     font-size: var(--fs-7);
     line-height: 1.2;
-
-    /* @media (min-width: 800px) {
-      font-size: var(--fs-7);
-    } */
   }
 
   p {
@@ -61,16 +49,12 @@
   }
 
   blockquote {
-    padding: 1em;
-    border-inline-start: 4px solid var(--clr-brand);
-    background-color: antiquewhite;
+    padding: 1.25em 1.5em;
+    border-inline-start: 4px solid #57534e;
+    background-color: hsl(0deg 0% 96%);
 
     @media (min-width: 600px) {
-      margin-inline: 2.5em;
-    }
-
-    @media (min-width: 900px) {
-      margin-inline: 3.5em;
+      margin-inline: 1em;
     }
   }
 

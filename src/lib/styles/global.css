@@ -140,7 +140,7 @@ body > footer {
 .heading::after {
   content: "";
   display: block;
-  margin-top: 5px;
+  margin-top: 10px;
   width: clamp(2em, 25%, 3em);
   height: 3px;
   /* background-color: #212121; */

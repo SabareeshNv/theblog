@@ -14,35 +14,35 @@ const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
     <article class="wrapper py typography">
       <slot />
       <hr />
+      <div class="taged-under">Tags</div>
       <div class="tags flex-row">
-        {
-          tags.map((tag) => (
-            <a href={`/tag/${slugify(tag)}`} class="shadow">
-              #{tag}
-            </a>
-          ))
-        }
+        {tags.map((tag) => <a href={`/tag/${slugify(tag)}`}>#{tag}</a>)}
       </div>
     </article>
   </main>
 </BaseLayout>
 
 <style>
+  .taged-under {
+    color: var(--clr-brand);
+    font-size: var(--fs-8);
+    font-weight: 600;
+    font-family: var(--ff-serif);
+    margin-block-start: 1em; /* To override default typography margins */
+  }
+
   .tags {
     gap: 1em;
+    margin-block-start: 0.5em; /* To override default typography margins */
   }
 
   .tags a {
-    background-color: #f5f5f4;
-    background-color: var(--clr-gray);
-    padding: 0.1em 0.2em;
     font-size: var(--fs-4);
-    border-radius: 0.25rem;
     text-decoration: none;
     color: black;
 
     &:hover {
-      background-color: #d4d4d3ff;
+      text-decoration: underline;
     }
   }
 </style>
