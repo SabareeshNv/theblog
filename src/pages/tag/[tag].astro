@@ -7,25 +7,26 @@ import { getCollection } from "astro:content";
 import { filterPosts, generateTagData, unslugify } from "@utils/helpers";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("blog");
-  const filteredPosts = filterPosts(allPosts);
+    const allPosts = await getCollection("blog");
+    const filteredPosts = filterPosts(allPosts);
 
-  const uniqueTags = [
-    ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
-  ] as string[];
+    const uniqueTags = [
+        ...new Set(filteredPosts.flatMap((post) => post.data.tags)),
+    ] as string[];
 
-  const tagData = generateTagData(uniqueTags);
+    const tagData: { name: string; slug: string }[] =
+        generateTagData(uniqueTags);
 
-  return tagData.map((tag) => {
-    const taggedPosts = filteredPosts.filter((post) =>
-      post.data.tags.includes(tag.name)
-    );
+    return tagData.map((tag) => {
+        const taggedPosts = filteredPosts.filter((post) =>
+            post.data.tags.includes(tag.name)
+        );
 
-    return {
-      params: { tag: tag.slug },
-      props: { posts: taggedPosts },
-    };
-  });
+        return {
+            params: { tag: tag.slug },
+            props: { posts: taggedPosts },
+        };
+    });
 }
 
 const { tag } = Astro.params;
@@ -36,32 +37,33 @@ const description = `All posts on the topic of ${tag}`;
 ---
 
 <BaseLayout {title} {description}>
-  <main class="wrapper py grid">
-    <div>
-      <h1>
-        Posts on the topic of <span>{unslugify(tag)}</span>
-      </h1>
+    <main class="wrapper py grid">
+        <div>
+            <h1>
+                Posts on the topic of <span>{unslugify(tag)}</span>
+            </h1>
 
-      <div class="card-grid">
-        {posts.map((post) => <Card {post} />)}
-      </div>
-    </div>
+            <div class="card-grid">
+                {posts.map((post) => <Card {post} />)}
+            </div>
+        </div>
 
-    <aside class="sidebar">
-      <TagCloud />
-    </aside>
-  </main>
+        <aside class="sidebar">
+            <TagCloud />
+        </aside>
+    </main>
 </BaseLayout>
 
 <style>
-  h1 {
-    font-size: var(--fs-8);
-    margin-block-end: 1em;
-  }
+    h1 {
+        font-size: var(--fs-8);
+        margin-block-end: 1em;
+    }
 
-  span {
-    margin-inline: 0.1em;
-    color: var(--clr-brand);
-    font-family: var(--ff-serif);
-  }
+    span {
+        margin-inline: 0.1em;
+        color: var(--clr-brand);
+        font-family: var(--ff-serif);
+        text-shadow: 1px 1px var(--clr-dark);
+    }
 </style>

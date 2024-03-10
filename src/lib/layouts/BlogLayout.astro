@@ -1,48 +1,30 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-import Hero from "@components/Hero.astro";
+export interface props {
+    title: string;
+    description: string;
+    pubDate: string;
+    tags: string[];
+    coverImage: object;
+    coverAlt: string;
+}
 
-import { slugify } from "@utils/helpers";
+import BaseLayout from "./BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SearchField from "../components/SearchField.astro";
+import BlogPostTags from "../components/BlogPostTags.astro";
+
 import "../styles/typography.css";
 
 const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
 ---
 
 <BaseLayout {title} {description}>
-  <main data-pagefind-body>
-    <Hero {title} {pubDate} {coverImage} {coverAlt} />
-    <article class="wrapper py typography">
-      <slot />
-      <hr />
-      <div class="taged-under">Tags</div>
-      <div class="tags flex-row">
-        {tags.map((tag) => <a href={`/tag/${slugify(tag)}`}>#{tag}</a>)}
-      </div>
-    </article>
-  </main>
+    <main data-pagefind-body>
+        <Hero {title} {pubDate} {coverImage} {coverAlt} />
+        <article class="wrapper py typography">
+            <slot />
+            <hr />
+            <BlogPostTags {tags} />
+        </article>
+    </main>
 </BaseLayout>
-
-<style>
-  .taged-under {
-    color: var(--clr-brand);
-    font-size: var(--fs-8);
-    font-weight: 600;
-    font-family: var(--ff-serif);
-    margin-block-start: 1em; /* To override default typography margins */
-  }
-
-  .tags {
-    gap: 1em;
-    margin-block-start: 0.5em; /* To override default typography margins */
-  }
-
-  .tags a {
-    font-size: var(--fs-4);
-    text-decoration: none;
-    color: black;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-</style>

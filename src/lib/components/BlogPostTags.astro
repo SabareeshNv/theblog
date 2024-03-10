@@ -1,0 +1,40 @@
+---
+import { slugify } from "../utils/helpers";
+
+export interface props {
+    tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<div class="taged-under">Tags</div>
+<div class="tags flex-row">
+    {tags.map((tag) => <a href={`/tag/${slugify(tag)}`}>#{tag}</a>)}
+</div>
+
+<style>
+    .taged-under {
+        color: var(--clr-brand);
+        font-size: var(--fs-8);
+        font-weight: 700;
+        font-family: var(--ff-serif);
+        margin-block-start: 1em; /* To override default typography margins */
+        text-shadow: 1px 1px var(--clr-dark);
+    }
+
+    .tags {
+        gap: 1em;
+        margin-block-start: 0.5em; /* To override default typography margins */
+    }
+
+    .tags a {
+        font-size: var(--fs-4);
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+</style>

@@ -17,7 +17,7 @@
   --clr-dark: #070504;
   --clr-light: #ffffff;
   --clr-brand: #990000;
-  --clr-gray: rgb(242, 241, 236);
+  --clr-gray: #f2f1ec;
 }
 
 *,
@@ -43,15 +43,6 @@ body {
   font-size: var(--fs-4);
   color: var(--clr-dark);
   background-color: var(--clr-light);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600;
 }
 
 img,
@@ -143,6 +134,5 @@ body > footer {
   margin-top: 10px;
   width: clamp(2em, 25%, 3em);
   height: 3px;
-  /* background-color: #212121; */
   background-color: var(--clr-brand);
 }

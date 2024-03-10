@@ -1,68 +1,68 @@
 ---
 const footer = [
-  { text: "Privacy Policy", link: "/privacy-policy" },
-  { text: "RSS Feed", link: "/rss.xml" },
-  { text: "Editorial Policy", link: "/editorial-policy" },
+    { text: "Privacy Policy", link: "/privacy-policy" },
+    { text: "RSS Feed", link: "/rss.xml" },
+    { text: "Editorial Policy", link: "/editorial-policy" },
 ];
 ---
 
 <footer>
-  <div class="wrapper footer-grid">
-    <ul class="flex-row">
-      {
-        footer.map((item) => (
-          <li>
-            <a href={item.link}>{item.text}</a>
-          </li>
-        ))
-      }
-    </ul>
-    <div class="copy">Copyright © 2024 | TheLoneVoice.in</div>
-  </div>
+    <div class="wrapper footer-grid">
+        <ul class="flex-row">
+            {
+                footer.map((item) => (
+                    <li>
+                        <a href={item.link}>{item.text}</a>
+                    </li>
+                ))
+            }
+        </ul>
+        <div class="copy">Copyright © 2024 | TheLoneVoice.in</div>
+    </div>
 </footer>
 
 <style>
-  footer {
-    background-color: #000000e6;
-    color: var(--clr-light);
-    padding-block: 1em;
-  }
-
-  .footer-grid {
-    display: grid;
-    gap: 0.75em;
-    grid-template-columns: 1fr;
-
-    @media (min-width: 800px) {
-      grid-template-columns: 2fr 1fr;
-      gap: 0.25em;
+    footer {
+        background-color: #000000e6;
+        color: var(--clr-light);
+        padding-block: 1em;
     }
-  }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    gap: 1em;
-    align-items: center;
-    justify-content: space-evenly;
+    .footer-grid {
+        display: grid;
+        gap: 0.75em;
+        grid-template-columns: 1fr;
 
-    @media (min-width: 800px) {
-      justify-content: normal;
-      gap: 1.25em;
+        @media (min-width: 800px) {
+            grid-template-columns: 2fr 1fr;
+            gap: 0.25em;
+        }
     }
-  }
 
-  li a {
-    color: var(--clr-light);
-    font-size: var(--fs-3);
-  }
+    ul {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        gap: 1em;
+        align-items: center;
+        justify-content: space-evenly;
 
-  .copy {
-    text-align: center;
-
-    @media (min-width: 800px) {
-      text-align: right;
+        @media (min-width: 800px) {
+            justify-content: normal;
+            gap: 1.25em;
+        }
     }
-  }
+
+    li a {
+        color: var(--clr-light);
+        font-size: var(--fs-3);
+    }
+
+    .copy {
+        text-align: center;
+
+        @media (min-width: 800px) {
+            text-align: right;
+        }
+    }
 </style>

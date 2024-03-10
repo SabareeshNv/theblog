@@ -7,9 +7,10 @@ import pagefind from "astro-pagefind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://thelonevoice.in",
-  build: {
-    assets: "_assets",
-  },
-  integrations: [embeds(), mdx(), sitemap(), pagefind()],
+    site: "https://thelonevoice.in",
+    build: {
+        assets: "_assets",
+        inlineStylesheets: "always",
+    },
+    integrations: [embeds(), mdx(), sitemap(), pagefind()],
 });

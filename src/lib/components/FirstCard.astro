@@ -2,61 +2,69 @@
 import { Image } from "astro:assets";
 import Date from "./Date.astro";
 
+export interface props {
+    title: string;
+    pubDate: string;
+    summary: string;
+    coverImage: object;
+    coverAlt: string;
+}
+
 const { post } = Astro.props;
 const { title, pubDate, summary, coverImage, coverAlt } = post.data;
 ---
 
 <article>
-  <a href={`/blog/${post.slug}/`}>
-    <Image
-      src={coverImage}
-      alt={coverAlt}
-      widths={[400, 800]}
-      sizes={`(max-width: 600px) 400px, (min-width: 601px) 800px`}
-      quality={"max"}
-      loading={"eager"}
-      fetchpriority={"high"}
-      decoding={"sync"}
-      class="card-image shadow"
-    />
-  </a>
+    <a href={`/blog/${post.slug}/`}>
+        <Image
+            src={coverImage}
+            alt={coverAlt}
+            widths={[400, 800]}
+            sizes={`(max-width: 600px) 400px, (min-width: 601px) 800px`}
+            quality={"max"}
+            loading={"eager"}
+            fetchpriority={"high"}
+            decoding={"sync"}
+            class="card-image shadow"
+        />
+    </a>
 
-  <Date date={pubDate} class="date" />
+    <Date date={pubDate} class="date" />
 
-  <h2>
-    <a href={`/blog/${post.slug}/`}>{title}</a>
-  </h2>
+    <h2>
+        <a href={`/blog/${post.slug}/`}>{title}</a>
+    </h2>
 
-  <div class="summary">
-    {summary}
-  </div>
+    <div class="summary">
+        {summary}
+    </div>
 </article>
 
 <style>
-  article {
-    margin-bottom: 3em;
-  }
+    article {
+        margin-bottom: 3em;
+    }
 
-  .card-image {
-    width: 100%;
-    border-radius: 0.2rem;
-    background-color: rgb(209 213 219);
-    aspect-ratio: 16 / 9;
-  }
+    .card-image {
+        width: 100%;
+        border-radius: 0.2rem;
+        background-color: rgb(209 213 219);
+        aspect-ratio: 16 / 9;
+    }
 
-  .date {
-    padding-block-start: 0.75em;
-    padding-block-end: 0.5em;
-  }
+    .date {
+        padding-block-start: 0.75em;
+        padding-block-end: 0.5em;
+    }
 
-  h2 {
-    margin-block-end: 0.75em;
-    font-family: var(--ff-serif);
-    font-size: var(--fs-7);
-    line-height: 1.2;
-  }
+    h2 {
+        margin-block-end: 0.75em;
+        font-family: var(--ff-serif);
+        font-size: var(--fs-7);
+        line-height: 1.2;
+    }
 
-  .summary {
-    line-height: 1.5;
-  }
+    .summary {
+        line-height: 1.5;
+    }
 </style>

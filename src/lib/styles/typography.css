@@ -51,6 +51,7 @@
   blockquote {
     padding: 1.25em 1.5em;
     border-inline-start: 4px solid #57534e;
+    border-inline-start: 4px solid var(--clr-dark);
     background-color: hsl(0deg 0% 96%);
 
     @media (min-width: 600px) {

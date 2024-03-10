@@ -1,75 +1,76 @@
 ---
 const nav = [
-  { text: "Home", link: "/" },
-  { text: "Blog", link: "/blog" },
-  { text: "About", link: "/about" },
-  { text: "Contact", link: "/contact" },
+    { text: "Home", link: "/" },
+    { text: "Blog", link: "/blog" },
+    { text: "About", link: "/about" },
+    { text: "Contact", link: "/contact" },
 ];
 ---
 
 <header class="shadow">
-  <nav class="wrapper">
-    <div class="brand"><a href="/">The Lone Voice</a></div>
-    <ul class="flex-row">
-      {
-        nav.map((item) => (
-          <li>
-            <a href={item.link}>{item.text}</a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
+    <nav class="wrapper">
+        <div class="brand"><a href="/">The Lone Voice</a></div>
+        <ul class="flex-row">
+            {
+                nav.map((item) => (
+                    <li>
+                        <a href={item.link}>{item.text}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
 </header>
 
 <style>
-  header {
-    padding-block: 0.75em;
-  }
-
-  nav {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75em;
-    align-items: center;
-
-    @media (min-width: 600px) {
-      grid-template-columns: 1fr 2fr;
+    header {
+        padding-block: 0.75em;
     }
-  }
 
-  .brand {
-    font-size: var(--fs-6);
-    text-align: center;
-    font-family: var(--ff-serif);
-    font-weight: 600;
-    @media (min-width: 600px) {
-      text-align: left;
+    nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75em;
+        align-items: center;
+
+        @media (min-width: 600px) {
+            grid-template-columns: 1fr 2fr;
+        }
     }
-  }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    align-items: center;
-    justify-content: space-evenly;
+    .brand {
+        font-size: var(--fs-6);
+        font-family: var(--ff-serif);
+        font-weight: 700;
+        text-align: center;
 
-    @media (min-width: 600px) {
-      justify-content: flex-end;
-      gap: 3em;
+        @media (min-width: 600px) {
+            text-align: left;
+        }
     }
-  }
 
-  li a {
-    font-size: var(--fs-4);
+    ul {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
 
-    &:hover,
-    &:focus-visible {
-      color: var(--clr-brand);
-      text-decoration: underline;
-      text-underline-offset: 5px;
-      text-decoration-thickness: 2px;
+        @media (min-width: 600px) {
+            justify-content: flex-end;
+            gap: 3em;
+        }
     }
-  }
+
+    li a {
+        font-size: var(--fs-4);
+
+        &:hover,
+        &:focus-visible {
+            color: var(--clr-brand);
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            text-decoration-thickness: 2px;
+        }
+    }
 </style>

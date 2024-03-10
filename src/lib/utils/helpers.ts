@@ -1,88 +1,76 @@
-import { number } from "astro/zod";
+import { type CollectionEntry } from "astro:content";
 
+/*  This function return a text in its slugified form  */
 export function slugify(text: string): string {
-  return text
-    .toString()
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]+/g, "")
-    .replace(/--+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+    return text
+        .toString()
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]+/g, "")
+        .replace(/--+/g, "-")
+        .replace(/^-+/, "")
+        .replace(/-+$/, "");
 }
 
+/*  This function return a text in its Un-Slugified form  */
 export function unslugify(slug: string): string {
-  return slug
-    .replace(/\-/g, " ")
-    .replace(
-      /\w\S*/g,
-      (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
-    );
+    return slug
+        .replace(/\-/g, " ")
+        .replace(
+            /\w\S*/g,
+            (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
+        );
 }
 
-export function formatDate(date: Date): string {
-  const d = new Date(date);
-  return d.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+/*  This function will return an array of objects 
+    with name and its sluggified form               */
+export function generateTagData(
+    tags: string[]
+): { name: string; slug: string }[] {
+    return tags.map((tag) => ({ name: tag, slug: slugify(tag) }));
 }
 
-// This function will return an object with name and its sluggified form
-// To make typescript happy ( The shape of data is defined here)
-interface nameSlug {
-  name: string;
-  slug: string;
-}
-export function generateTagData(tags: string[]): nameSlug[] {
-  let tagData: nameSlug[] = [];
-  tags.forEach((tag) => {
-    tagData.push({
-      name: tag,
-      slug: `${slugify(tag)}`,
-    });
-  });
-  return tagData;
+/*  This function filter out the posts according
+    to conditions in the parameters specified.      */
+interface FilterOptions {
+    filterOutDrafts?: boolean;
+    filterOutFuturePosts?: boolean;
+    sortByDate?: boolean;
+    limit?: number;
 }
 
-// This function filter out the posts according
-// to conditions in the parameters specified.
 export function filterPosts(
-  posts,
-  {
-    filterOutDrafts = true,
-    filterOutFuturePosts = true,
-    sortByDate = true,
-    limit = undefined, // default is nolimit; if need, pass a number eg: 5
-  } = {}
-) {
-  const filteredPosts = posts.reduce((acc, post) => {
-    const { pubDate, draft } = post.data;
-    // filterOutDrafts if true
-    if (filterOutDrafts && draft) return acc;
+    posts: CollectionEntry<"blog">[],
+    options: FilterOptions = {}
+): CollectionEntry<"blog">[] {
+    const {
+        filterOutDrafts = true,
+        filterOutFuturePosts = true,
+        sortByDate = true,
+        limit,
+    } = options;
 
-    // filterOutFuturePosts if true
-    if (filterOutFuturePosts && new Date(pubDate) > new Date()) return acc;
+    const filteredPosts: CollectionEntry<"blog">[] = posts.filter((post) => {
+        //Filter out drafts
+        if (filterOutDrafts && post.data.draft) return false;
+        // Filter out future posts ,ie date that exceeds todays date
+        if (filterOutFuturePosts && new Date(post.data.pubDate) > new Date())
+            return false;
 
-    // add post to acc
-    acc.push(post);
+        return true;
+    });
 
-    return acc;
-  }, []);
+    if (sortByDate) {
+        filteredPosts.sort(
+            (a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate)
+        );
+    } else {
+        filteredPosts.sort(() => Math.random() - 0.5);
+    }
 
-  // sortByDate or randomize
-  if (sortByDate) {
-    filteredPosts.sort(
-      (a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate)
-    );
-  } else {
-    filteredPosts.sort(() => Math.random() - 0.5);
-  }
+    if (limit !== undefined) {
+        return filteredPosts.slice(0, limit);
+    }
 
-  // limit if number is passed
-  if (typeof limit === "number") {
-    return filteredPosts.slice(0, limit);
-  }
-  return filteredPosts;
+    return filteredPosts;
 }
