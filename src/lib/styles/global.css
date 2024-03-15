@@ -18,6 +18,7 @@
   --clr-light: #ffffff;
   --clr-brand: #990000;
   --clr-gray: #f2f1ec;
+  --clr-accent: #deb887;
 }
 
 *,
@@ -81,7 +82,7 @@ body {
   height: 100%;
 }
 
-body > footer {
+body>footer {
   position: sticky;
   top: 100vh;
 }
@@ -125,6 +126,17 @@ body > footer {
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.styled-tag {
+  color: var(--clr-dark);
+  background-color: var(--clr-accent);
+  padding: 0.25em;
+  border-radius: 0.25rem;
+
+  &:hover {
+    filter: brightness(0.95);
   }
 }
 

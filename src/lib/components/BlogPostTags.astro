@@ -31,10 +31,13 @@ const { tags } = Astro.props;
     .tags a {
         font-size: var(--fs-4);
         text-decoration: none;
-        color: black;
+        color: var(--clr-dark);
+        background-color: var(--clr-accent);
+        padding: 0.25em;
+        border-radius: 0.25rem;
 
         &:hover {
-            text-decoration: underline;
+            filter: brightness(0.95);
         }
     }
 </style>
