@@ -4,6 +4,10 @@ const footer = [
     { text: "RSS Feed", link: "/rss.xml" },
     { text: "Editorial Policy", link: "/editorial-policy" },
 ];
+
+function getCurrentYear() {
+    return new Date().getFullYear();
+}
 ---
 
 <footer>
@@ -17,7 +21,9 @@ const footer = [
                 ))
             }
         </ul>
-        <div class="copy">Copyright © 2024 | TheLoneVoice.in</div>
+        <div class="copy">
+            Copyright © {getCurrentYear} | TheLoneVoice.in
+        </div>
     </div>
 </footer>
 

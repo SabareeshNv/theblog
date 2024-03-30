@@ -5,25 +5,23 @@ import FirstCard from "@components/FirstCard.astro";
 import TagCloud from "@components/TagCloud.astro";
 import SearchField from "@components/SearchField.astro";
 
-import { getCollection, type CollectionEntry } from "astro:content";
-import { filterPosts } from "@utils/helpers";
+import { fetchAndFilterPosts } from "@utils/helpers";
 
-const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
-const filteredPosts = filterPosts(allPosts);
+const posts = await fetchAndFilterPosts();
 // console.log(Object.values(allPosts)[0]);
 
 const title = "TheLoneVoice";
-const description = "Welcome to my humble blog";
+const description = "Welcome to my blog";
 ---
 
 <BaseLayout {title} {description}>
     <main class="wrapper py grid">
         <div>
             <!-- First Card -->
-            {filteredPosts.slice(0, 1).map((post) => <FirstCard {post} />)}
+            {posts.slice(0, 1).map((post) => <FirstCard {post} />)}
             <div class="card-grid">
                 <!-- Rest of Cards -->
-                {filteredPosts.slice(1).map((post) => <Card {post} />)}
+                {posts.slice(1).map((post) => <Card {post} />)}
             </div>
         </div>
         <aside class="sidebar">

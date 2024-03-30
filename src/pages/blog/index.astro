@@ -6,8 +6,7 @@ import Card from "@components/Card.astro";
 import SearchField from "@components/SearchField.astro";
 import TagCloud from "@components/TagCloud.astro";
 
-import { type CollectionEntry, getCollection } from "astro:content";
-import { filterPosts } from "@utils/helpers";
+import { fetchAndFilterPosts } from "@utils/helpers";
 
 // export async function getStaticPaths({ paginate }) {
 //   const allPosts = await getCollection("blog");
@@ -22,8 +21,7 @@ import { filterPosts } from "@utils/helpers";
 //   }));
 // }
 
-const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
-const filteredPosts: CollectionEntry<"blog">[] = filterPosts(allPosts);
+const posts = await fetchAndFilterPosts();
 
 const title = "Blog | TheLoneVoice";
 const description = "See all our blog posts | TheLoneVoice";
@@ -32,7 +30,7 @@ const description = "See all our blog posts | TheLoneVoice";
 <BaseLayout {title} {description}>
     <main class="wrapper py grid">
         <div class="card-grid">
-            {filteredPosts.map((post) => <Card {post} />)}
+            {posts.map((post) => <Card {post} />)}
         </div>
 
         <aside class="sidebar">

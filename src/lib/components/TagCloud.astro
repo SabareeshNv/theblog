@@ -1,12 +1,10 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import { filterPosts, generateTagData } from "../utils/helpers";
+import { fetchAndFilterPosts, generateTagData } from "../utils/helpers";
 
-const allPosts = await getCollection("blog");
-const filteredPosts = filterPosts(allPosts);
+const posts = await fetchAndFilterPosts();
 
 const uniqueTags = [
-    ...new Set(filteredPosts.flatMap((post) => post.data.tags)),
+    ...new Set(posts.flatMap((post) => post.data.tags)),
 ] as string[];
 
 const tagData: { name: string; slug: string }[] = generateTagData(uniqueTags);

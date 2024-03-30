@@ -1,20 +1,15 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-
-import { filterPosts } from "../../lib/utils/helpers";
-
 import BlogLayout from "../../lib/layouts/BlogLayout.astro";
 
+import { fetchAndFilterPosts } from "../../lib/utils/helpers";
+
 export async function getStaticPaths() {
-    const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
-    const filteredPosts = filterPosts(allPosts);
-    return filteredPosts.map((post) => ({
+    const posts = await fetchAndFilterPosts();
+    return posts.map((post) => ({
         params: { slug: post.slug },
         props: post,
     }));
 }
-
-type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await post.render();

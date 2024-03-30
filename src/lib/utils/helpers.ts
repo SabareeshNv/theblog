@@ -1,4 +1,4 @@
-import { type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 /*  This function return a text in its slugified form  */
 export function slugify(text: string): string {
@@ -73,4 +73,8 @@ export function filterPosts(
     }
 
     return filteredPosts;
+}
+
+export async function fetchAndFilterPosts() {
+    return (filterPosts(await getCollection("blog")));
 }
